@@ -1,0 +1,3 @@
+include ':broadcastreceiver'
+include ':app'
+rootProject.name = "AndroidDemos"
