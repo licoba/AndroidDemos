@@ -1,4 +1,10 @@
-# 广播接收器 BroadcastReceiver
+---
+description: BroadcastReceiver的两种注册方式以及两种广播的区别
+---
+
+# 四大组件之 BroadcastReceiver
+
+![&#x4E24;&#x79CD;&#x5E7F;&#x64AD;&#x548C;&#x4E24;&#x79CD;&#x6CE8;&#x518C;&#x65B9;&#x5F0F;](../../../.gitbook/assets/image.png)
 
 ## 1. 注册步骤
 
@@ -14,10 +20,10 @@
 
 显式在 menifest 文件里面进行注册
 
-1. 首先创建 MyBroadcastReceiver 继承自 BroadcastReceiver，然后实现他的 onReceive() 方法
-2. 在 menifest 文件里面的<application>标签下，用<receiver>标签来声明自己注册的 receiver
+1. 首先创建 MyBroadcastReceiver 继承自 BroadcastReceiver，然后实现他的 onReceive\(\) 方法
+2. 在 menifest 文件里面的标签下，用标签来声明自己注册的 receiver
 
-```
+```text
 <receiver
     android:name=".MyBroadcastReceiver"
     android:enabled="true"
@@ -39,7 +45,7 @@
 
 **对于动态广播，有注册就必然得有注销，否则会导致内存泄露**
 
-## 2. 有序广播和无序广播
+## 2. 广播种类
 
 ### 有序广播
 
@@ -56,3 +62,8 @@ intent-filter 拥有相同 android:priority 属性的话，先注册的将先收
 无序广播就是没有顺序，各个 receiver 之间没有练习，因为是异步的，所以在同一时刻（理论上），所有注册了 action 的 receiver 都会收到消息，
 
 无序广播可以保证及时性，高效性，但是不能保证执行的顺序。
+
+## 附：Demo 源码
+
+* GitHub：[https://github.com/licoba/AndroidDemos/tree/master/broadcastreceiver](https://github.com/licoba/AndroidDemos/tree/master/broadcastreceiver)
+
